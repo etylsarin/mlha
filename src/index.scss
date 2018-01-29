@@ -52,7 +52,7 @@ div.header {
   &:after{
     content: '';
     position: absolute;
-    bottom: -5rem;
+    bottom: -5.1rem;
     left: 0rem;
     height: 5.1rem;
     display: block;
@@ -95,12 +95,17 @@ div.header {
     color: rgba(255, 255, 255, 0.75);
     max-width: 30rem;
     margin: auto;
+  }
 
-    .hide-xs {
-      @media only screen and (max-device-width : 640px) {
-        display: none;
-      }
+  .hide-xs {
+    @media only screen and (max-device-width : 640px) {
+      display: none;
     }
+  }
+
+  p {
+    padding-top: 0.3em;
+    color: rgba(255, 255, 255, 0.75);
 
     a {
       color: white;
@@ -112,24 +117,18 @@ div.header {
   }
 
   .clip-svg {
-          width: 0;
-          height: 0;
-      }
+    width: 0;
+    height: 0;
+  }
 
   .foto-wrap {
+
     display: inline-block;
-    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    -webkit-clip-path: url("#polygon-clip-hexagon");
-    clip-path: url("#polygon-clip-hexagon");
     background: rgba(255, 255, 255, 0.85);
     width: 156px;
-    height: 166px;
-    margin-right: 5em;
-
-    @media only screen and (max-device-width : 640px) {
-      display: none;
-    }
+    height: 156px;
+    margin-right: 4em;
+    border-radius: 50%;
   }
 
   .foto {
@@ -137,11 +136,9 @@ div.header {
     left: 3px;
     top: 3px;
     width: 150px;
-    height: 160px;
-    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    -webkit-clip-path: url("#polygon-clip-hexagon");
-    clip-path: url("#polygon-clip-hexagon");
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
 
     img {
       position: relative;
@@ -149,7 +146,33 @@ div.header {
       height: 100%;
       }
     }
-}
+
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+      .foto-wrap {
+        -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        -webkit-clip-path: url("#polygon-clip-hexagon");
+        clip-path: url("#polygon-clip-hexagon");
+        border-radius: 0;
+        height: 166px;
+      }
+
+      .foto {
+        -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        -webkit-clip-path: url("#polygon-clip-hexagon");
+        clip-path: url("#polygon-clip-hexagon");
+        border-radius: 0;
+        height: 160px;
+      }
+    }
+
+    @media only screen and (max-device-width : 640px) {
+      .foto-wrap {
+        display: none !important;
+      }
+    }
+  }
 
 .title {
   display: inline-block;
